@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        document.onkeydown = function (event) {
+            //键入长和宽后回车，计算得到周长和面积
+            if (event.keyCode == "13") {
+                var jxLength = document.getElementById("jxLength").value;
+                var jxWidth = document.getElementById("jxWidth").value;
+                document.getElementById("jxZC").value = (Number(jxLength) + Number(jxWidth)) * 2;
+                document.getElementById("area").value = Number(jxLength) * Number(jxWidth);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>矩形的长：<input type="text" id="jxLength"></p>
+    <p>矩形的宽：<input type="text" id="jxWidth"></p>
+    <p>矩形的周长：<input type="text" id="jxZC"></p>
+    <p>矩形的面积：<input type="text" id="area"></p>
+</body>
+
+</html>

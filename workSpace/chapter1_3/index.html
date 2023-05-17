@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        const scores = [
+            { number: "N1047", chinese: 95, math: 79, english: 98 },
+            { number: "N1176", chinese: 84, math: 72, english: 66 },
+            { number: "N1087", chinese: 82, math: 98, english: 69 },
+            { number: "N1808", chinese: 77, math: 87, english: 85 },
+            { number: "N1365", chinese: 93, math: 80, english: 71 },
+            { number: "N1416", chinese: 90, math: 77, english: 97 },
+            { number: "N1048", chinese: 74, math: 75, english: 93 },
+            { number: "N1126", chinese: 74, math: 89, english: 88 },
+            { number: "N1386", chinese: 77, math: 99, english: 84 },
+            { number: "N1869", chinese: 80, math: 92, english: 89 },
+            { number: "N1666", chinese: 63, math: 81, english: 90 },
+        ];
+        const totalScores = scores.map(student => {
+            const total = student.chinese + student.math + student.english;
+            return { number: student.number, total };
+        });
+        totalScores.sort((a, b) => b.total - a.total);
+        console.log('学号\t总分');
+        for (let student of totalScores) {
+            console.log(`${student.number}\t${student.total}`);
+        }
+        function getTopThree(subject) {
+            const sortedScores = [...scores].sort((a, b) => b[subject] - a[subject]);
+            return sortedScores.slice(0, 3);
+        }
+        console.log('语文\t学号\t成绩');
+        for (let student of getTopThree('chinese')) {
+            console.log(`\t\t${student.number}\t${student.chinese}`);
+        }
+        console.log('数学\t学号\t成绩');
+        for (let student of getTopThree('math')) {
+            console.log(`\t\t${student.number}\t${student.math}`);
+        }
+        console.log('英语\t学号\t成绩');
+        for (let student of getTopThree('english')) {
+            console.log(`\t\t${student.number}\t${student.english}`);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

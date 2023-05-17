@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.3.2.36.js"></script>
+</head>
+
+<body>
+    <div id="App">
+        <span>新建任务&nbsp;</span><input type="text" v-model="content">&nbsp;<button @click="add">添加</button>
+        <ol>
+            <li v-for="(item,index) in List">{{item}}&nbsp;&nbsp;<button @click="remove">删除任务</button>
+                <hr>
+            </li>
+        </ol>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    content: "",
+                    List: []
+                }
+            },
+            methods: {
+                add() {
+                    if (this.content.length == 0) {
+                        alert("请输入内容");
+                    } else {
+                        this.List.push(this.content);
+                        this.content = "";
+                    }
+                },
+                remove(index){
+                    this.List.splice(index, 1);
+                }
+            }
+        }
+        Vue.createApp(App).mount('#App')
+    </script>
+</body>
+
+</html>

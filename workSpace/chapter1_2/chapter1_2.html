@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Student(id,name,age){
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.learning=function(){
+                return "我正在学习Jquery";
+            }
+        }
+        var zs = new Student(1,"石凤哲",25);
+        document.write(zs.id+" "+zs.name+" "+zs.age+" "+zs.learning()+"<br/>");
+        //尝试使用JSON创建zs对象
+        var zs1 = {"id":2,"name":"石凤哲","age":25,"learning":function(){
+            return "我是JSON创建的zs对象";
+        }};
+        document.write(zs1.id+" "+zs1.name+" "+zs1.age+" "+zs1.learning());
+    </script>
+</body>
+</html>
